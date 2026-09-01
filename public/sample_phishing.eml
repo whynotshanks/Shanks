@@ -1,0 +1,58 @@
+Received: from mail-receiver.example.org (mail-receiver.example.org [203.0.113.45])
+	by inbox.company.com (Postfix) with ESMTP id 4Xf2n1
+	for <victim@company.com>; Tue, 01 Sep 2026 18:45:32 +0530
+Received: from relay.suspicious-network.net (relay.suspicious-network.net [185.220.101.42])
+	by mail-receiver.example.org (Postfix) with ESMTP id 3kD9mZ
+	for <victim@company.com>; Tue, 01 Sep 2026 18:42:15 +0530
+Received: from [10.0.0.15] (unknown [10.0.0.15])
+	by relay.suspicious-network.net (Postfix) with ESMTPA id 2jA7kX
+	for <victim@company.com>; Tue, 01 Sep 2026 18:40:01 +0530
+Received: from sender.local (sender.local [192.168.1.100])
+	by [10.0.0.15] with SMTP id 1iB6jW
+	for <victim@company.com>; Tue, 01 Sep 2026 18:38:45 +0530
+Authentication-Results: mail-receiver.example.org;
+	dkim=fail (body hash did not verify) header.d=evil-phishing-example.com header.s=default;
+	spf=fail (Sender SPF not authorized) smtp.mailfrom=evil-phishing-example.com;
+	dmarc=fail (p=none) header.from=evil-phishing-example.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=evil-phishing-example.com; s=default; t=1725197881;
+	bh=...
+Return-Path: <bounce@evil-phishing-example.com>
+Delivered-To: victim@company.com
+From: "Google Security Team" <support@evil-phishing-example.com>
+To: victim@company.com
+Reply-To: attacker@evil-reply-domain.tk
+Subject: URGENT: Verify Your Account - Password Expiring Today
+Date: Tue, 01 Sep 2026 18:38:30 +0530
+Message-ID: <a1b2c3d4e5f6@evil-phishing-example.com>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="----=_Part_001"
+
+User-Agent: PHPMailer 6.5.3
+
+------=_Part_001
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<body>
+<h2>Google Account Verification Required</h2>
+<p>Dear User,</p>
+<p>Your account password is expiring today. You must verify your account =
+immediately to prevent suspension.</p>
+<p><a href="http://login.google-verify-secure.xyz/account/verify?token=3Dabc=
+123">Click here to verify your account</a></p>
+<p>If you do not verify within 24 hours, your account will be permanently =
+suspended.</p>
+<p>Please confirm your password at: http://185.220.101.42/login.php</p>
+<hr>
+<p>Google Security Team | =A9 2026 Google Inc.</p>
+</body>
+</html>
+
+------=_Part_001
+Content-Type: application/zip; name="account_details.zip"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="account_details.zip"
+
+UEsDBBQAAAAgAAI=
+------=_Part_001--
